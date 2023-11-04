@@ -14,12 +14,12 @@ SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 WORKDIR /actions-runner
 COPY install_actions.sh /actions-runner
 
+# Update and install dependencies
 RUN apt-get update \
   && apt-get install -y --no-install-recommends \
-    nodejs \
-    npm \
-    php \
+    ca-certificates \
     curl \
+    gnupg \
     jq \
     git \
     ftp \
@@ -35,8 +35,20 @@ RUN apt-get update \
     tar \
     time \
     brotli \
-    bison
+    bison \
+    php
 
+# Download and import the Nodesource GPG key
+RUN curl -fsSL https://deb.nodesource.com/gpgkey/nodesource-repo.gpg.key | gpg --dearmor -o /etc/apt/keyrings/nodesource.gpg
+
+# Create deb repository for Node.js 20.x
+RUN echo "deb [signed-by=/etc/apt/keyrings/nodesource.gpg] https://deb.nodesource.com/node_20.x nodistro main" | tee /etc/apt/sources.list.d/nodesource.list
+
+# Run update and install Node.js
+RUN apt-get update \
+  && apt-get install -y nodejs
+
+# Install global npm packages
 RUN npm install puppeteer cypress -g
 
 RUN chmod +x /actions-runner/install_actions.sh \
