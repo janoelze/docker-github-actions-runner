@@ -55,9 +55,6 @@ RUN apt-get update \
     libgtk-3-0
 
 # Download and import the Nodesource GPG key
-RUN curl -fsSL https://deb.nodesource.com/gpgkey/nodesource-repo.gpg.key |
-
-# Download and import the Nodesource GPG key
 RUN curl -fsSL https://deb.nodesource.com/gpgkey/nodesource-repo.gpg.key | gpg --dearmor -o /etc/apt/keyrings/nodesource.gpg
 
 # Create deb repository for Node.js 20.x
