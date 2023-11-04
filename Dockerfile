@@ -14,6 +14,14 @@ SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 WORKDIR /actions-runner
 COPY install_actions.sh /actions-runner
 
+RUN apt-get update \
+  && apt-get install -y --no-install-recommends \
+    nodejs \
+    npm \
+    php \
+    python3 \
+    python3-pip
+
 RUN chmod +x /actions-runner/install_actions.sh \
   && /actions-runner/install_actions.sh ${GH_RUNNER_VERSION} ${TARGETPLATFORM} \
   && rm /actions-runner/install_actions.sh \
