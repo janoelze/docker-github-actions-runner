@@ -52,7 +52,8 @@ RUN apt-get update \
     libgconf-2-4 \
     libasound2 \
     libatk1.0-0 \
-    libgtk-3-0
+    libgtk-3-0 \
+    libgbm-dev
 
 # Download and import the Nodesource GPG key
 RUN curl -fsSL https://deb.nodesource.com/gpgkey/nodesource-repo.gpg.key | gpg --dearmor -o /etc/apt/keyrings/nodesource.gpg
