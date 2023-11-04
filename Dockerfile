@@ -36,24 +36,47 @@ RUN apt-get update \
     time \
     brotli \
     bison \
-    php \
-    # Additional packages for Puppeteer and Cypress
+    php8.2 \
+
+RUN apt-get update \
+  && apt-get install -y --no-install-recommends \
+    gconf-service \
+    libasound2 \
+    libatk1.0-0 \
+    libc6 \
+    libcairo2 \
+    libcups2 \
+    libdbus-1-3 \
+    libexpat1 \
+    libfontconfig1 \
+    libgcc1 \
+    libgconf-2-4 \
+    libgdk-pixbuf2.0-0 \
+    libglib2.0-0 \
+    libgtk-3-0 \
+    libnspr4 \
+    libpango-1.0-0 \
     libpangocairo-1.0-0 \
+    libstdc++6 \
+    libx11-6 \
     libx11-xcb1 \
+    libxcb1 \
     libxcomposite1 \
     libxcursor1 \
     libxdamage1 \
+    libxext6 \
+    libxfixes3 \
     libxi6 \
-    libxtst6 \
-    libnss3 \
-    libcups2 \
-    libxss1 \
     libxrandr2 \
-    libgconf-2-4 \
-    libasound2 \
-    libatk1.0-0 \
-    libgtk-3-0 \
-    libgbm-dev
+    libxrender1 \
+    libxss1 \
+    libxtst6 \
+    ca-certificates \
+    fonts-liberation \
+    libappindicator1 \
+    libnss3 \
+    lsb-release \
+    xdg-utils
 
 # Download and import the Nodesource GPG key
 RUN curl -fsSL https://deb.nodesource.com/gpgkey/nodesource-repo.gpg.key | gpg --dearmor -o /etc/apt/keyrings/nodesource.gpg
