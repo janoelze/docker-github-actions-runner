@@ -37,6 +37,8 @@ RUN apt-get update \
     brotli \
     bison
 
+RUN npm install puppeteer cypress -g
+
 RUN chmod +x /actions-runner/install_actions.sh \
   && /actions-runner/install_actions.sh ${GH_RUNNER_VERSION} ${TARGETPLATFORM} \
   && rm /actions-runner/install_actions.sh \
