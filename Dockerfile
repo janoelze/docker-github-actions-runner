@@ -19,8 +19,23 @@ RUN apt-get update \
     nodejs \
     npm \
     php \
+    curl \
+    jq \
+    git \
+    ftp \
+    libcurl4 \
     python3 \
-    python3-pip
+    python3-pip \
+    python3-setuptools \
+    rsync \
+    sqlite3 \
+    unzip \
+    wget \
+    zip \
+    tar \
+    time \
+    brotli \
+    bison
 
 RUN chmod +x /actions-runner/install_actions.sh \
   && /actions-runner/install_actions.sh ${GH_RUNNER_VERSION} ${TARGETPLATFORM} \
