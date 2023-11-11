@@ -40,7 +40,7 @@ RUN apt-get install -y bison
 RUN apt-get install -y php
 
 # pupeeteer and cypress dependencies
-RUN apt-get install -y chromium-bsu
+RUN apt-get install -y chromium-browser chromium-browser-l10n chromium-codecs-ffmpeg 
 RUN apt-get install -y firefox
 RUN apt-get install -y libx11-xcb1
 RUN apt-get install -y libxcomposite1
